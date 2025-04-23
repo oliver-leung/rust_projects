@@ -8,13 +8,11 @@ fn main() {
             println!("Which Fibonacci number?");
             let n = read_num();
             println!("The {}th Fibonacci number is {}", n, fib(n));
-        }
-        else if m == 2 {
+        } else if m == 2 {
             println!("Fahrenheit?");
             let n = read_num() as f32;
             println!("{} Celsius", f_to_c(n));
-        }
-        else if m == 3 {
+        } else if m == 3 {
             println!("Celsius?");
             let n = read_num() as f32;
             println!("{} Fahrenheit", c_to_f(n));
@@ -24,9 +22,7 @@ fn main() {
 
 fn read_num() -> usize {
     let mut n = String::new();
-    io::stdin()
-        .read_line(&mut n)
-        .expect("Failed to read line");
+    io::stdin().read_line(&mut n).expect("Failed to read line");
 
     n.trim().parse().expect("Not a number.")
 }
@@ -39,15 +35,14 @@ fn c_to_f(c: f32) -> f32 {
     (c * 9.0 / 5.0) + 32.0
 }
 
-
 fn fib(n: usize) -> usize {
     let mut mem = Vec::new();
     for i in 0..n as usize {
         if [0, 1].contains(&i) {
             mem.push(1)
         } else {
-            mem.push(mem[i-1] + mem[i-2])
+            mem.push(mem[i - 1] + mem[i - 2])
         }
     }
-    return *mem.last().unwrap_or(&0)
+    return *mem.last().unwrap_or(&0);
 }
